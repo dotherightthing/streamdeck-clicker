@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>com.dtrt.clicker Property Inspector</title>
+		<link rel="stylesheet" href="../libs/streamdeck/css/sdpi.css" />
+		<link rel="stylesheet" href="inspector.css" />
+	</head>
+	<body>
+		<div class="sdpi-wrapper">
+			<form id="property-inspector">
+
+					<div class="sdpi-heading">X-Y POINT</div>
+					<div class="sdpi-item">
+						<div data-localize class="sdpi-item-label">X</div>
+						<input data-localize class="sdpi-item-value" name="x" type="number" value="" placeholder="X coordinate" />
+					</div>
+					<div class="sdpi-item">
+						<div data-localize class="sdpi-item-label">Y</div>
+						<input data-localize class="sdpi-item-value" name="y" type="number" value="" placeholder="Y coordinate" />
+					</div>
+
+					<div class="sdpi-heading">Text ('Text' action only)</div>
+
+					<div class="sdpi-item details">
+						<div class="sdpi-item-label">Text</div>
+						<div class="sdpi-value">
+							<div data-localize class="sdpi-item-label">Text</div>
+							<input data-localize class="sdpi-item-value" name="text" type="text" value="" placeholder="" />
+						</div>
+					</div>
+
+					<div class="sdpi-heading">OPTION</div>
+
+					<div class="sdpi-item">
+						<div data-localize class="sdpi-item-label">Easing (all actions except Text)</div>
+
+						<div>
+							<input data-localize class="sdpi-item-value" name="easing" type="number" value="0" placeholder="Easing factor" />
+
+							<div class="sdpi-item-value">
+								<div class="tip info">
+									<p>Set an easing factor for mouse movements. The higher this
+										value is, the more will mouse movements seem
+										“natural” or “human-like”, which also implies: will be slower.
+										If this option is used, the actual speed will also depend
+										on the distance between the start and the end position, i.e.
+										the time needed for moving will be higher if the distance
+										is larger.</p>
+										<p>Try a value of 50 to see the effect</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div type="checkbox" class="sdpi-item" id="single-check">
+						<div class="sdpi-item-label">Restore</div>
+						<div class="sdpi-item-value">
+							<div class="sdpi-item-child">
+								<input id="singlechk" type="checkbox" value="off" name="restore">
+								<label for="singlechk" class="sdpi-item-label"><span></span>Restore initial mouse location</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="sdpi-item">
+						<div data-localize class="sdpi-item-label">Wait after action</div>
+						<input data-localize class="sdpi-item-value" name="wait" type="number" value="20" min="20" placeholder="Wait time (ms)" />
+					</div>
+				</div>
+
+			</form>
+		</div>
+
+		<div class="sdpi-info-label hidden" style="top: -1000" value=""></div>
+
+		<!-- Stream Deck Libs -->
+		<script src="../libs/streamdeck/js/constants.js"></script>
+		<script src="../libs/streamdeck/js/prototypes.js"></script>
+		<script src="../libs/streamdeck/js/timers.js"></script>
+		<script src="../libs/streamdeck/js/utils.js"></script>
+		<script src="../libs/streamdeck/js/events.js"></script>
+		<script src="../libs/streamdeck/js/api.js"></script>
+		<script src="../libs/streamdeck/js/property-inspector.js"></script>
+		<script src="../libs/streamdeck/js/dynamic-styles.js"></script>
+
+		<!-- Property Inspector Source -->
+		<script src="inspector.js"></script>
+	</body>
+</html>

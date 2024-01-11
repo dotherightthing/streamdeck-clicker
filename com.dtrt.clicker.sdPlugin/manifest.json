@@ -1,0 +1,163 @@
+{
+	"Name": "Clicker",
+	"Actions": [
+		{
+			"Name": "Click",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "CLICK at the point with the given coordinates",
+			"UUID": "com.dtrt.clicker.c"
+		},
+		{
+			"Name": "Continue drag",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "Continue the DRAG event to the given coordinates",
+			"UUID": "com.dtrt.clicker.dm"
+		},
+		{
+			"Name": "Double-click",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "DOUBLE-CLICK at the point with the given coordinates",
+			"UUID": "com.dtrt.clicker.dc"
+		},
+		{
+			"Name": "End drag",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "Release to END A DRAG at the given coordinates",
+			"UUID": "com.dtrt.clicker.du"
+		},
+		{
+			"Name": "Move",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "MOVE the mouse to the point with the given coordinates",
+			"UUID": "com.dtrt.clicker.m"
+		},
+		{
+			"Name": "Right-click",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "RIGHT-CLICK at the point with the given coordinates",
+			"UUID": "com.dtrt.clicker.rc"
+		},
+		{
+			"Name": "Start drag",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "Press down to START A DRAG at the given coordinate",
+			"UUID": "com.dtrt.clicker.dd"
+		},
+		{
+			"Name": "Text",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "TYPE the given TEXT into the frontmost application",
+			"UUID": "com.dtrt.clicker.t"
+		},
+		{
+			"Name": "Triple-click",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "TRIPLE-CLICK at the point with the given coordinates. If Triple-Click does not work, try DOUBLE-CLICK followed by (single) CLICK.",
+			"UUID": "com.dtrt.clicker.tc"
+		}
+	],
+	"Author": "DTRT",
+	"Category": "Clicker",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Automate mouse pointer",
+	"Icon": "imgs/plugin/marketplace",
+	"Nodejs": {
+		"Debug": "enabled",
+		"Version": "20"
+	},
+	"OS": [
+		{
+			"MinimumVersion": "10.9",
+			"Platform": "mac"
+		}
+	],
+	"PropertyInspectorPath": "property-inspector/inspector.html",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.5"
+	},
+	"UUID": "com.dtrt.clicker",
+	"Version": "0.2"
+}
