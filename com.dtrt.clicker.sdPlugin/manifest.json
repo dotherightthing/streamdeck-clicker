@@ -1,0 +1,118 @@
+{
+	"Name": "Clicker",
+	"Actions": [
+		{
+			"Name": "Click",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "CLICK at the point with the given coordinates",
+			"UUID": "com.dtrt.clicker.c"
+		},
+		{
+			"Name": "Double-click",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "DOUBLE-CLICK at the point with the given coordinates",
+			"UUID": "com.dtrt.clicker.dc"
+		},
+		{
+			"Name": "Move",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "MOVE the mouse to the point with the given coordinates",
+			"UUID": "com.dtrt.clicker.m"
+		},
+		{
+			"Name": "Right-click",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "RIGHT-CLICK at the point with the given coordinates",
+			"UUID": "com.dtrt.clicker.rc"
+		},
+		{
+			"Name": "Text",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "TYPE the given TEXT into the frontmost application",
+			"UUID": "com.dtrt.clicker.t"
+		},
+		{
+			"Name": "Triple-click",
+			"Controllers": [
+				"Keypad"
+			],
+			"Icon": "imgs/actions/counter/icon",
+			"States": [
+				{
+					"Image": "imgs/actions/counter/icon",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Tooltip": "TRIPLE-CLICK at the point with the given coordinates. If Triple-Click does not work, try DOUBLE-CLICK followed by (single) CLICK.",
+			"UUID": "com.dtrt.clicker.tc"
+		}
+	],
+	"Author": "DTRT",
+	"Category": "Clicker",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Automate mouse pointer",
+	"Icon": "imgs/plugin/marketplace",
+	"Nodejs": {
+		"Debug": "enabled",
+		"Version": "20"
+	},
+	"OS": [
+		{
+			"MinimumVersion": "10.9",
+			"Platform": "mac"
+		}
+	],
+	"PropertyInspectorPath": "property-inspector/inspector.html",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.5"
+	},
+	"UUID": "com.dtrt.clicker",
+	"Version": "0.2"
+}
