@@ -26,6 +26,27 @@ npm run watch
 
 Note: does not watch `com.dtrt.clicker.sdPlugin/property-inspector/*`
 
+### Logging
+
+#### Node
+
+```ts
+import streamDeck, { LogLevel } from "@elgato/streamdeck";
+const logger = streamDeck.logger.createScope("Clicker")
+logger.setLevel(LogLevel.TRACE);
+
+logger.error('...');
+logger.info('...');
+```
+
+#### Frontend
+
+```js
+console.log('...');
+```
+
+View the console at <http://localhost:23654/>.
+
 ### Debug UI
 
 The default debugger is available at <http://localhost:23654/> but it can be slow to debug layout here.
