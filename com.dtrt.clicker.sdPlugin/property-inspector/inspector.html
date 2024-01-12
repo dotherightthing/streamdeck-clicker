@@ -14,8 +14,8 @@
 	<body>
 		<div class="sdpi-wrapper">
 			<form id="property-inspector">
+          <div class="sdpi-heading">X-Y POINT</div>
 
-					<div class="sdpi-heading">X-Y POINT</div>
 					<div class="sdpi-item">
 						<div data-localize class="sdpi-item-label">X</div>
 						<input data-localize class="sdpi-item-value" name="x" type="number" value="" placeholder="X coordinate" />
@@ -25,13 +25,12 @@
 						<input data-localize class="sdpi-item-value" name="y" type="number" value="" placeholder="Y coordinate" />
 					</div>
 
-					<div class="sdpi-heading">OPTION</div>
+					<div class="sdpi-heading">OPTIONS</div>
 
 					<div class="sdpi-item">
 						<div data-localize class="sdpi-item-label">Easing</div>
 						<div>
 							<input data-localize class="sdpi-item-value" name="easing" type="number" value="0" placeholder="Easing factor" />
-
 							<div class="sdpi-item-value">
 								<div class="tip info">
 									<p>Set an easing factor for mouse movements. The higher this
@@ -46,7 +45,6 @@
 							</div>
 						</div>
 					</div>
-
 					<div type="checkbox" class="sdpi-item" id="single-check">
 						<div class="sdpi-item-label">Restore</div>
 						<div class="sdpi-item-value">
@@ -56,13 +54,11 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="sdpi-item">
 						<div data-localize class="sdpi-item-label">Wait after action</div>
 						<input data-localize class="sdpi-item-value" name="wait" type="number" value="20" min="20" placeholder="Wait time (ms)" />
 					</div>
 				</div>
-
 			</form>
 		</div>
 
@@ -78,7 +74,7 @@
 		<script src="../libs/streamdeck/js/property-inspector.js"></script>
 		<script src="../libs/streamdeck/js/dynamic-styles.js"></script>
 
-		<!-- Property Inspector Source -->
+		<!-- Local -->
 		<script src="inspector.js"></script>
 	</body>
 </html>

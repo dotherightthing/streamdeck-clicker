@@ -6,7 +6,7 @@ import { M } from './actions/m';
 import { RC } from './actions/rc';
 import { TC } from './actions/tc';
 
-// Enable "trace" logging so that all messages between the Stream Deck, and the plugin are recorded. When storing sensitive information
+// Enable 'trace' logging so that all messages between the Stream Deck and the plugin are recorded
 streamDeck.logger.setLevel(LogLevel.TRACE);
 
 // Register the actions.
