@@ -1,0 +1,80 @@
+{
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:jsdoc/recommended"
+  ],
+  "globals": {
+    "$PI": "readonly",
+    "Utils": "readonly"
+  },
+  "plugins": [
+    "jsdoc"
+  ],
+  "ignorePatterns": [
+    "com.dtrt.clicker.sdPlugin/bin/",
+    "com.dtrt.clicker.sdPlugin/libs/"
+  ],
+  "overrides": [
+    {
+      "env": {
+        "node": true
+      },
+      "files": [
+        "**/*.ts"
+      ],
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": [
+          "./tsconfig.json"
+        ]
+      }
+    }
+  ],
+  "rules": {
+    "array-bracket-spacing": ["error", "always"],
+    "block-spacing": ["error", "always"],
+    "class-methods-use-this": [
+      "off"
+    ],
+    "comma-spacing": ["error"],
+    "func-names": ["warn", "as-needed"],
+    "global-require": 0,
+    "indent": ["warn", 2],
+    "linebreak-style": ["error", "unix"],
+    "max-len": [ "error", {
+      "code": 200,
+      "tabWidth": 4,
+      "ignoreUrls": true,
+      "ignoreComments": true,
+      "ignoreRegExpLiterals": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
+    }],
+    "no-console": "off",
+    "no-underscore-dangle": "off",
+    "no-use-before-define": "warn",
+    "no-param-reassign": [ "warn", {
+      "props": false
+    }],
+    "no-unused-expressions": 0,
+    "prefer-regex-literals": 0,
+    "valid-typeof": [
+      "off"
+    ]
+  }
+}
