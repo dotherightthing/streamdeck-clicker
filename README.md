@@ -26,6 +26,12 @@ npm run watch
 
 Note: does not watch `com.dtrt.clicker.sdPlugin/property-inspector/*`
 
+### Debug UI
+
+The default debugger is available at <http://localhost:23654/> but it can be slow to debug layout here.
+
+Since all paths are relative, another option is to open `/com.dtrt.clicker.sdPlugin/property-inspector/inspector.html` directly in a web browser.
+
 ## Links
 
 * [Create a Stream Deck Plugin to Interact with Webhooks](https://www.thepolyglotdeveloper.com/2020/07/create-stream-deck-plugin-interact-webhooks/)
