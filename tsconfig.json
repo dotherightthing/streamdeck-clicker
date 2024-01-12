@@ -8,6 +8,8 @@
 		"moduleResolution": "Bundler"
 	},
 	"include": [
+		"index.d.ts",
+		"src/**/*.js",
 		"src/**/*.ts"
 	],
 	"exclude": [

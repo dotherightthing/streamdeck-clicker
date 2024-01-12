@@ -33,6 +33,7 @@ const config = {
 		nodeResolve({
 			browser: false,
 			exportConditions: ["node"],
+			modulePaths: ["./src/modules"],
 			preferBuiltins: true
 		}),
 		commonjs(),
