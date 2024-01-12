@@ -24,8 +24,6 @@ cd ~/Library/Application\ Support/com.elgato.StreamDeck/plugins/ && unlink com.d
 npm run watch
 ```
 
-Note: does not watch `com.dtrt.clicker.sdPlugin/property-inspector/*`
-
 ### Logging
 
 #### Node

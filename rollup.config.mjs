@@ -25,6 +25,9 @@ const config = {
 			name: "watch-externals",
 			buildStart: function () {
 				this.addWatchFile(`${sdPlugin}/manifest.json`);
+				this.addWatchFile(`${sdPlugin}/property-inspector/inspector.css`);
+				this.addWatchFile(`${sdPlugin}/property-inspector/inspector.html`);
+				this.addWatchFile(`${sdPlugin}/property-inspector/inspector.js`);
 			},
 		},
 		typescript({
