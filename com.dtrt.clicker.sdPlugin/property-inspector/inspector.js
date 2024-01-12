@@ -1,7 +1,6 @@
-/**
- * @see {@link ../libs/streamdeck/js/property-inspector.js}
- * @see {@link ../libs/streamdeck/js/utils.js}
- */
+/// <reference path="../libs/streamdeck/js/property-inspector.js" />
+/// <reference path="../libs/streamdeck/js/utils.js" />
+
 $PI.onConnected(jsn => {
   const { actionInfo } = jsn;
   const { payload } = actionInfo;
