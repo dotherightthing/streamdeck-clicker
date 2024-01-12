@@ -10,7 +10,7 @@
 			"States": [
 				{
 					"Image": "imgs/actions/counter/icon",
-					"TitleAlignment": "middle"
+					"TitleAlignment": "bottom"
 				}
 			],
 			"Tooltip": "CLICK at the point with the given coordinates",
@@ -25,7 +25,7 @@
 			"States": [
 				{
 					"Image": "imgs/actions/counter/icon",
-					"TitleAlignment": "middle"
+					"TitleAlignment": "bottom"
 				}
 			],
 			"Tooltip": "DOUBLE-CLICK at the point with the given coordinates",
@@ -40,7 +40,7 @@
 			"States": [
 				{
 					"Image": "imgs/actions/counter/icon",
-					"TitleAlignment": "middle"
+					"TitleAlignment": "bottom"
 				}
 			],
 			"Tooltip": "MOVE the mouse to the point with the given coordinates",
@@ -55,7 +55,7 @@
 			"States": [
 				{
 					"Image": "imgs/actions/counter/icon",
-					"TitleAlignment": "middle"
+					"TitleAlignment": "bottom"
 				}
 			],
 			"Tooltip": "RIGHT-CLICK at the point with the given coordinates",
@@ -70,7 +70,7 @@
 			"States": [
 				{
 					"Image": "imgs/actions/counter/icon",
-					"TitleAlignment": "middle"
+					"TitleAlignment": "bottom"
 				}
 			],
 			"Tooltip": "TRIPLE-CLICK at the point with the given coordinates. If Triple-Click does not work, try DOUBLE-CLICK followed by (single) CLICK.",

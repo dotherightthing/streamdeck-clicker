@@ -10,7 +10,7 @@ logger.setLevel(LogLevel.TRACE);
 @action({ UUID: "com.dtrt.clicker.m" })
 export class M extends SingletonAction<Settings> {
 	onWillAppear(ev: WillAppearEvent<Settings>): void | Promise<void> {
-		return ev.action.setTitle(`Clicker\nMove`);
+		return ev.action.setTitle(`Move`);
 	}
 
 	async onKeyDown(ev: KeyDownEvent<Settings>): Promise<void> {
