@@ -62,21 +62,6 @@
 			"UUID": "com.dtrt.clicker.rc"
 		},
 		{
-			"Name": "Text",
-			"Controllers": [
-				"Keypad"
-			],
-			"Icon": "imgs/actions/counter/icon",
-			"States": [
-				{
-					"Image": "imgs/actions/counter/icon",
-					"TitleAlignment": "middle"
-				}
-			],
-			"Tooltip": "TYPE the given TEXT into the frontmost application",
-			"UUID": "com.dtrt.clicker.t"
-		},
-		{
 			"Name": "Triple-click",
 			"Controllers": [
 				"Keypad"
