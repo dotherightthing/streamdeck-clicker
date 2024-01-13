@@ -1,42 +1,40 @@
-import { exec } from 'node:child_process';
+import { execa } from 'execa';
+
+import streamDeck from "@elgato/streamdeck";
+const logger = streamDeck.logger.createScope("Clicker")
 
 /**
  * @function cliclick
  * @summary Build string and run it as a shell command
  * @param {string} cmd - cliclick command
  * @param {object} settings - Settings from Stream Deck Property Inspector
- * @param {streamDeck.logger} logger - Logger class
- * @returns {boolean}
+ * @returns {boolean} Command ran without error
  */
-export function cliclick(cmd, settings, logger) {
-	const {
-		easing,
-		restore,
-		wait,
-		x,
-		y
-	} = settings;
+export async function cliclick(cmd, settings) {
+  const {
+    easing,
+    restore,
+    wait,
+    x,
+    y
+  } = settings;
 
-	let shellStr = 'libs/cliclick/cliclick ';
+  let command = 'libs/cliclick/cliclick';
 
-	shellStr += restore ? '-r ' : '';
-	shellStr += (easing > 0) ? `-e ${easing} ` : '';
-	shellStr += `-w ${wait} `;
-	shellStr += `${cmd}:=${x},=${y}`;
+  command += restore ? ' -r' : '';
+  command += (easing > 0) ? ` -e ${easing}` : '';
+  command += ` -w ${wait}`;
+  command += ` ${cmd}:=${x},=${y}`;
 
-	exec(shellStr, (error, stdout, stderr) => {
-		if (error) {
-			logger.error(error.message);
-			return;
-		}
 
-		if (stderr) {
-			logger.error(stderr);
-			return;
-		}
+  // https://github.com/sindresorhus/execa#handling-errors
+  try {
+    await execa(command, { shell: true });
 
-		logger.info(stdout);
-	});
+    return true;
+  } catch (error) {
+    logger.error(error); // error|info|warn
 
-	return;
+    return false;
+  }
 }

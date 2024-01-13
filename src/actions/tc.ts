@@ -1,8 +1,4 @@
 import { action, KeyDownEvent, SingletonAction, WillAppearEvent } from "@elgato/streamdeck";
-import streamDeck, { LogLevel } from "@elgato/streamdeck";
-const logger = streamDeck.logger.createScope("Clicker")
-logger.setLevel(LogLevel.TRACE);
-
 import { cliclick } from 'cliclick';
 
 /**
@@ -16,8 +12,7 @@ export class TC extends SingletonAction<Settings> {
 
 	async onKeyDown(ev: KeyDownEvent<Settings>): Promise<void> {
 		const settings = (({ easing, restore, wait, x, y }) => ({ easing, restore, wait, x, y }))(ev.payload.settings);
-
-		cliclick('tc', settings, logger);
+		const success = await cliclick('tc', settings);
 	}
 }
 
