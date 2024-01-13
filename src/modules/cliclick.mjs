@@ -12,11 +12,11 @@ const logger = streamDeck.logger.createScope("Clicker")
  */
 export async function cliclick(cmd, settings) {
   const {
-    easing,
-    restore,
-    wait,
-    x,
-    y
+    easing = 0,
+    restore = false,
+    wait = 20,
+    x = 0,
+    y = 0
   } = settings;
 
   let command = 'libs/cliclick/cliclick';
