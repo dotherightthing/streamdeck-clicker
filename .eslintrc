@@ -13,6 +13,7 @@
   ],
   "globals": {
     "$PI": "readonly",
+    "process": "readonly",
     "Utils": "readonly"
   },
   "plugins": [
