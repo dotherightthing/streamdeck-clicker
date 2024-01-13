@@ -2,9 +2,6 @@ import { action, KeyDownEvent, SingletonAction, WillAppearEvent } from "@elgato/
 import { cliclick } from 'cliclick';
 import { getDesktopBounds } from 'getDesktopBounds';
 
-import streamDeck from "@elgato/streamdeck";
-const logger = streamDeck.logger.createScope("Clicker")
-
 /**
  * m:x,y
  */
@@ -25,7 +22,7 @@ export class M extends SingletonAction<Settings> {
 
 		ev.action.setSettings(settings);
 
-		return ev.action.setTitle(`Move`);
+		return ev.action.setTitle('Move');
 	}
 
 	// https://docs.elgato.com/sdk/plugins/events-received#keydown
