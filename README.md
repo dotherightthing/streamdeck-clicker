@@ -43,7 +43,9 @@ logger.info('...');
 console.log('...');
 ```
 
-View the console at <http://localhost:23654/>.
+1. Open Property Inspector inside Stream Deck
+2. View the console at <http://localhost:23654/>
+3. Select *com.dtrt.clicker Property Inspector*
 
 ### Debug UI
 
