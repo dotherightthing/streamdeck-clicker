@@ -71,3 +71,4 @@ Since all paths are relative, another option is to open `/com.dtrt.clicker.sdPlu
 * [v5.1](https://github.com/BlueM/cliclick/releases/tag/5.1) of [cliclick](https://github.com/BlueM/cliclick) - thanks @BlueM for a wonderful library!
 * [@elgato/cli](https://github.com/elgatosf/cli) for plugin scaffolding
 * [Stream Deck SDK for Node.js (Beta)](https://github.com/elgatosf/streamdeck)
+* [Pure CSS Custom Checkbox Style](https://moderncss.dev/pure-css-custom-checkbox-style/)
