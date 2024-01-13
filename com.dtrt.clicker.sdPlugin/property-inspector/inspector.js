@@ -68,8 +68,9 @@ $PI.onConnected(jsn => {
   }));
 
   // receive payload from plugin
-  $PI.onSendToPropertyInspector(action, (jsn2) => {
-    const { payload: settings2 } = jsn2; // { action, context, event, payload }
+  $PI.onDidReceiveSettings(action, (jsn2) => { // { action, context, device, event, payload }
+    const { payload: payload2 } = jsn2; // { controller, coordinates, isInMultiAction, settings }
+    const { settings: settings2 } = payload2;
 
     Utils.setFormValue(settings2, form);
   });

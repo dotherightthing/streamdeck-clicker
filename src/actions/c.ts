@@ -26,10 +26,10 @@ export class C extends SingletonAction<Settings> {
    * @description Receives payload from Property Inspector, processes it, sends updated payload to Property Inspector
    * @param {DidReceiveSettingsEvent} ev - DidReceiveSettingsEvent
    * @returns {Promise} Promise
-   * @see {@link https://docs.elgato.com/sdk/plugins/events-sent#setsettings|$PI.setSettings} - Property Inspector updates settings from user data
-   * @see {@link https://docs.elgato.com/sdk/plugins/events-received#didreceivesettings|onDidReceiveSettings} - Plugin receives payload via callback, processes it
-   * @see {@link https://docs.elgato.com/sdk/plugins/events-sent#sendtopropertyinspector|sendToPropertyInspector} - Plugin sends updated payload to Property Inspector
-   * @see {@link https://docs.elgato.com/sdk/plugins/events-received#sendtopropertyinspector|$PI.onSendToPropertyInspector} - Property Inspector receives updated payload via callback, processes it (there is no $PI.onDidReceiveSettings)
+   * @see {@link https://docs.elgato.com/sdk/plugins/events-sent#setsettings} - Property Inspector persists form data in settings ($PI.setSettings)
+   * @see {@link https://docs.elgato.com/sdk/plugins/events-received#didreceivesettings} - Plugin receives settings in callback payload (onDidReceiveSettings)
+   * @see {@link https://docs.elgato.com/sdk/plugins/events-sent#setsettings} - Plugin updates settings, persists updated settings (setSettings)
+   * @see {@link https://docs.elgato.com/sdk/plugins/events-received#didreceivesettings} - Property Inspector receives updated settings in callback payload ($PI.onDidReceiveSettings)
    */
 	async onDidReceiveSettings(ev: DidReceiveSettingsEvent<Settings>): Promise<void> {
 		const { payload } = ev;
@@ -51,10 +51,8 @@ export class C extends SingletonAction<Settings> {
 				displayHeight
 			});
 	
-			// send payload to property inspector
-			ev.action.sendToPropertyInspector(newSettings);
-
 			// persist settings
+			// property inspector runs callback
 			ev.action.setSettings(newSettings);
 		}
 	}
