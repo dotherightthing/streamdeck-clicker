@@ -1,6 +1,6 @@
 import { action, KeyDownEvent, SingletonAction, WillAppearEvent } from "@elgato/streamdeck";
 import { cliclick } from 'cliclick';
-import { getDesktopBounds } from 'getDesktopBounds';
+import { getDesktopBounds } from 'helpers';
 
 /**
  * tc:x,y

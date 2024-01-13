@@ -1,2 +1,2 @@
 declare module 'cliclick';
-declare module 'getDesktopBounds';
+declare module 'helpers';
