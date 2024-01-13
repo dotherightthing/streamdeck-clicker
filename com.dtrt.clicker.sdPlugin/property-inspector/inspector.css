@@ -7,10 +7,10 @@ details.message summary.summary-small {
 /* Remove whitespace after link */
 
 details a[href^='#'] {
-	background: none;
+  background: none;
   line-height: inherit;
   min-height: 0;
-	padding-right: 0;
+  padding-right: 0;
 }
 
 /* Improve a11y */
