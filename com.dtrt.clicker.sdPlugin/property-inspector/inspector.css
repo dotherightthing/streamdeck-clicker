@@ -8,6 +8,8 @@ details.message summary.summary-small {
 
 details a[href^='#'] {
 	background: none;
+  line-height: inherit;
+  min-height: 0;
 	padding-right: 0;
 }
 
@@ -111,6 +113,22 @@ fieldset > legend {
 
 /* Prevent vertical shift when details expanded */
 
+details.caution-top,
 details.question-top {
 	background-position-y: 4px;
+}
+
+/* Toggles */
+
+.sdpi-item.item-toggle {
+  max-width: 100%; /* override sdpi.css so that button aligns with legend */
+  min-height: 0; /* override sdpi.css so that hidden button doesn't consume space */
+}
+
+.sdpi-item.item-toggle > button.sdpi-item-value {
+  margin: 0 16px; /* override button.sdpi-item-value so that button aligns with legend */
+}
+
+[hidden] {
+  display: none;
 }

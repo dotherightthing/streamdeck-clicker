@@ -61,6 +61,7 @@ Since all paths are relative, another option is to open `/com.dtrt.clicker.sdPlu
 * [SDK documentation](https://docs.elgato.com/sdk/plugins/overview)
 * Plugin showing all supported HTML elements: [Samples: PISamples](https://docs.elgato.com/sdk/plugins/samples/pisamples)
 * [Marketplace Makers Discord channel](https://discord.gg/GehBUcu627)
+* [MVF1-Streamdeck](https://github.com/f1-tools/MVF1-Streamdeck/blob/main/com.f1-tools.mvf1.sdPlugin/actions/property-inspector/inspector.js) shows how Property Inspector events are done
 
 ## Tips
 
