@@ -1,5 +1,4 @@
 import { execa } from 'execa';
-
 import streamDeck from "@elgato/streamdeck";
 const logger = streamDeck.logger.createScope("Clicker")
 
@@ -19,26 +18,38 @@ const logger = streamDeck.logger.createScope("Clicker")
  */
 export async function getDesktopBounds() {
   const command = `osascript -e 'tell app "Finder" to get bounds of window of desktop'`;
+  const boundsStr = await shellCommand(command);
 
+  let bounds = {};
+
+  if (boundsStr !== '') {
+    const [ left, top, width, height ] = boundsStr.split(', ');
+
+    bounds = {
+      left,
+      top,
+      width,
+      height
+    };
+  }
+
+  return bounds;
+}
+
+/**
+ * @function shellCommand
+ * @param {string} command - Command to run
+ * @returns {string} Command output
+ */
+export async function shellCommand(command) {
   // https://github.com/sindresorhus/execa#handling-errors
   try {
-    const { stdout: boundsStr } = await execa(command, { shell: true });
+    const { stdout } = await execa(command, { shell: true });
 
-    const boundsArr = boundsStr.split(', ');
-
-    if (boundsArr.length === 0) {
-      return {};
-    }
-
-    return {
-      left: boundsArr[0], // negative if a second display is arranged to the left of your main display
-      top: boundsArr[1],
-      width: boundsArr[2],
-      height: boundsArr[3]
-    };
+    return stdout;
   } catch (error) {
     logger.error(error); // error|info|warn
 
-    return {};
+    return '';
   }
 }

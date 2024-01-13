@@ -1,14 +1,11 @@
-import { execa } from 'execa';
-
-import streamDeck from "@elgato/streamdeck";
-const logger = streamDeck.logger.createScope("Clicker")
+import { shellCommand } from 'helpers';
 
 /**
  * @function cliclick
  * @summary Build string and run it as a shell command
  * @param {string} cmd - cliclick command
  * @param {object} settings - Settings from Stream Deck Property Inspector
- * @returns {boolean} Command ran without error
+ * @returns {string} Command output
  */
 export async function cliclick(cmd, settings) {
   const {
@@ -30,15 +27,5 @@ export async function cliclick(cmd, settings) {
   command += ` -w ${wait}`;
   command += ` ${cmd}:${xStr},${yStr}`;
 
-
-  // https://github.com/sindresorhus/execa#handling-errors
-  try {
-    await execa(command, { shell: true });
-
-    return true;
-  } catch (error) {
-    logger.error(error); // error|info|warn
-
-    return false;
-  }
+  return await shellCommand(command);
 }

@@ -11,16 +11,22 @@ export class TC extends SingletonAction<Settings> {
 	// void | Promise<void> - The return type of an async function or method must be the global Promise<T> type. Did you mean to write 'Promise<void>'?
 	async onWillAppear(ev: WillAppearEvent<Settings>): Promise<void> {
 		const { payload } = ev;
-		let { settings } = payload;
+		const { settings: oldSettings } = payload;
+		const {
+			left: displayLeft,
+			top: displayTop,
+			width: displayWidth,
+			height: displayHeight
+		} = await getDesktopBounds();
 
-		const { left, top, width, height } = await getDesktopBounds();
+		const newSettings = Object.assign(oldSettings, {
+			displayLeft,
+			displayTop,
+			displayWidth,
+			displayHeight
+		});
 
-		settings.displayLeft = left;
-		settings.displayTop = top;
-		settings.displayWidth = width;
-		settings.displayHeight = height;
-
-		ev.action.setSettings(settings);
+		ev.action.setSettings(newSettings);
 
 		return ev.action.setTitle('Triple-click');
 	}
@@ -28,7 +34,8 @@ export class TC extends SingletonAction<Settings> {
 	// https://docs.elgato.com/sdk/plugins/events-received#keydown
 	async onKeyDown(ev: KeyDownEvent<Settings>): Promise<void> {
 		const settings = (({ easing, restore, wait, x, y }) => ({ easing, restore, wait, x, y }))(ev.payload.settings);
-		const success = await cliclick('tc', settings);
+
+		await cliclick('tc', settings);
 	}
 }
 
