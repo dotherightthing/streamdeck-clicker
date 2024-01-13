@@ -1,6 +1,42 @@
 /// <reference path="../libs/streamdeck/js/property-inspector.js" />
 /// <reference path="../libs/streamdeck/js/utils.js" />
 
+/**
+ * @function handleToggleClick
+ * @summary Handle user or automated click of a toggle control
+ * @param {Event} ev - Event
+ */
+function handleToggleClick(ev) {
+  const form = document.getElementById('property-inspector');
+  const toggle = ev.target;
+  const {
+    toggleInput: inputId,
+    toggleLayout: layoutId,
+    toggleParent: parentId
+  } = toggle.dataset;
+  const inputElement = document.getElementById(inputId);
+  const layoutElement = document.getElementById(layoutId);
+  const parentElement = document.getElementById(parentId);
+
+  // data-toggle-parent
+
+  toggle.setAttribute('disabled', true);
+  parentElement.setAttribute('hidden', true);
+
+  if (inputElement.value !== 'true') {
+    // set flag for processing in plugin callback
+    inputElement.value = 'true';
+
+    // get the updated form data
+    const value = Utils.getFormValue(form);
+
+    // persist form data
+    $PI.setSettings(value);
+  }
+
+  layoutElement.removeAttribute('hidden');
+}
+
 $PI.onConnected(jsn => {
   const { actionInfo } = jsn;
   const { action, payload } = actionInfo;
@@ -38,39 +74,3 @@ $PI.onConnected(jsn => {
     Utils.setFormValue(settings2, form);
   });
 });
-
-/**
- * @function handleToggleClick
- * @summary Handle user or automated click of a toggle control
- * @param {Event} ev - Event
- */
-function handleToggleClick(ev) {
-  const form = document.getElementById('property-inspector');
-  const toggle = ev.target;
-  const {
-    toggleInput: inputId,
-    toggleLayout: layoutId,
-    toggleParent: parentId
-  } = toggle.dataset;
-  const inputElement = document.getElementById(inputId);
-  const layoutElement = document.getElementById(layoutId);
-  const parentElement = document.getElementById(parentId);
-
-  // data-toggle-parent
-
-  toggle.setAttribute('disabled', true);
-  parentElement.setAttribute('hidden', true);
-
-  if (inputElement.value !== 'true') {
-    // set flag for processing in plugin callback
-    inputElement.value = 'true';
-
-    // get the updated form data
-    const value = Utils.getFormValue(form);
-
-    // persist form data
-    $PI.setSettings(value);
-  }
-
-  layoutElement.removeAttribute('hidden');
-}

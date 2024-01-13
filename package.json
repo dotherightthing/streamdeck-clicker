@@ -2,7 +2,8 @@
 	"scripts": {
 		"build": "rollup -c",
 		"lint": "eslint **/*.{js,mjs,ts}",
-		"watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.dtrt.clicker\""
+		"watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.dtrt.clicker\"",
+		"prepare": "husky install"
 	},
 	"type": "module",
 	"devDependencies": {
@@ -17,6 +18,7 @@
 		"@typescript-eslint/parser": "^6.18.1",
 		"eslint": "^8.56.0",
 		"eslint-plugin-jsdoc": "^48.0.2",
+		"husky": "^8.0.3",
 		"rollup": "^4.0.2",
 		"tslib": "^2.6.2",
 		"typescript": "^5.2.2"
