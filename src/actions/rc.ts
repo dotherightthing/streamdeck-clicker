@@ -2,8 +2,7 @@ import {
 	action,
 	DidReceiveSettingsEvent,
 	KeyDownEvent,
-	SingletonAction,
-	WillAppearEvent
+	SingletonAction
 } from "@elgato/streamdeck";
 
 import { cliclick } from 'cliclick';
@@ -14,12 +13,6 @@ import { getDesktopBounds } from 'helpers';
  */
 @action({ UUID: "com.dtrt.clicker.rc" })
 export class RC extends SingletonAction<Settings> {
-	// https://docs.elgato.com/sdk/plugins/events-received#willappear
-	// void | Promise<void> - The return type of an async function or method must be the global Promise<T> type. Did you mean to write 'Promise<void>'?
-	async onWillAppear(ev: WillAppearEvent<Settings>): Promise<void> {
-		return ev.action.setTitle('Right-click');
-	}
-
   /**
    * @function onDidReceiveSettings
    * @summary Callback for $PI.setSettings
