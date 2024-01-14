@@ -6,10 +6,10 @@
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/plugin/action-image",
+			"Icon": "imgs/action-image-c",
 			"States": [
 				{
-					"Image": "imgs/plugin/key-icon",
+					"Image": "imgs/key-icon-c",
 					"TitleAlignment": "bottom"
 				}
 			],
@@ -21,10 +21,10 @@
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/plugin/action-image",
+			"Icon": "imgs/action-image-dc",
 			"States": [
 				{
-					"Image": "imgs/plugin/key-icon",
+					"Image": "imgs/key-icon-dc",
 					"TitleAlignment": "bottom"
 				}
 			],
@@ -32,29 +32,29 @@
 			"UUID": "com.dtrt.clicker.dc"
 		},
 		{
-			"Name": "Move",
+			"Name": "Triple-click",
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/plugin/action-image",
+			"Icon": "imgs/action-image-tc",
 			"States": [
 				{
-					"Image": "imgs/plugin/key-icon",
+					"Image": "imgs/key-icon-tc",
 					"TitleAlignment": "bottom"
 				}
 			],
-			"Tooltip": "MOVE the mouse to the point with the given coordinates",
-			"UUID": "com.dtrt.clicker.m"
+			"Tooltip": "TRIPLE-CLICK at the point with the given coordinates. If Triple-Click does not work, try DOUBLE-CLICK followed by (single) CLICK.",
+			"UUID": "com.dtrt.clicker.tc"
 		},
 		{
 			"Name": "Right-click",
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/plugin/action-image",
+			"Icon": "imgs/action-image-rc",
 			"States": [
 				{
-					"Image": "imgs/plugin/key-icon",
+					"Image": "imgs/key-icon-rc",
 					"TitleAlignment": "bottom"
 				}
 			],
@@ -62,27 +62,27 @@
 			"UUID": "com.dtrt.clicker.rc"
 		},
 		{
-			"Name": "Triple-click",
+			"Name": "Move",
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/plugin/action-image",
+			"Icon": "imgs/action-image-m",
 			"States": [
 				{
-					"Image": "imgs/plugin/key-icon",
+					"Image": "imgs/key-icon-m",
 					"TitleAlignment": "bottom"
 				}
 			],
-			"Tooltip": "TRIPLE-CLICK at the point with the given coordinates. If Triple-Click does not work, try DOUBLE-CLICK followed by (single) CLICK.",
-			"UUID": "com.dtrt.clicker.tc"
+			"Tooltip": "MOVE the mouse to the point with the given coordinates",
+			"UUID": "com.dtrt.clicker.m"
 		}
 	],
 	"Author": "DTRT",
 	"Category": "Clicker",
-	"CategoryIcon": "imgs/plugin/category-icon",
+	"CategoryIcon": "imgs/category-icon",
 	"CodePath": "bin/plugin.js",
 	"Description": "Automate mouse pointer",
-	"Icon": "imgs/plugin/plugin-icon",
+	"Icon": "imgs/plugin-icon",
 	"Nodejs": {
 		"Debug": "enabled",
 		"Version": "20"

@@ -73,3 +73,4 @@ Since all paths are relative, another option is to open `/com.dtrt.clicker.sdPlu
 * [@elgato/cli](https://github.com/elgatosf/cli) for plugin scaffolding
 * [Stream Deck SDK for Node.js (Beta)](https://github.com/elgatosf/streamdeck)
 * [Pure CSS Custom Checkbox Style](https://moderncss.dev/pure-css-custom-checkbox-style/)
+* Icons created using [Button Creator for Stream Deck](https://apps.apple.com/us/app/button-creator-for-stream-deck/id1559303865?mt=12)l, [SF Symbols](https://developer.apple.com/sf-symbols/) and [Inkscape](https://inkscape.org/)
