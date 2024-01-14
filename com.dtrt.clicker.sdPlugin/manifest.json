@@ -6,10 +6,10 @@
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/actions/counter/icon",
+			"Icon": "imgs/plugin/action-image",
 			"States": [
 				{
-					"Image": "imgs/actions/counter/icon",
+					"Image": "imgs/plugin/key-icon",
 					"TitleAlignment": "bottom"
 				}
 			],
@@ -21,10 +21,10 @@
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/actions/counter/icon",
+			"Icon": "imgs/plugin/action-image",
 			"States": [
 				{
-					"Image": "imgs/actions/counter/icon",
+					"Image": "imgs/plugin/key-icon",
 					"TitleAlignment": "bottom"
 				}
 			],
@@ -36,10 +36,10 @@
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/actions/counter/icon",
+			"Icon": "imgs/plugin/action-image",
 			"States": [
 				{
-					"Image": "imgs/actions/counter/icon",
+					"Image": "imgs/plugin/key-icon",
 					"TitleAlignment": "bottom"
 				}
 			],
@@ -51,10 +51,10 @@
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/actions/counter/icon",
+			"Icon": "imgs/plugin/action-image",
 			"States": [
 				{
-					"Image": "imgs/actions/counter/icon",
+					"Image": "imgs/plugin/key-icon",
 					"TitleAlignment": "bottom"
 				}
 			],
@@ -66,10 +66,10 @@
 			"Controllers": [
 				"Keypad"
 			],
-			"Icon": "imgs/actions/counter/icon",
+			"Icon": "imgs/plugin/action-image",
 			"States": [
 				{
-					"Image": "imgs/actions/counter/icon",
+					"Image": "imgs/plugin/key-icon",
 					"TitleAlignment": "bottom"
 				}
 			],
@@ -82,7 +82,7 @@
 	"CategoryIcon": "imgs/plugin/category-icon",
 	"CodePath": "bin/plugin.js",
 	"Description": "Automate mouse pointer",
-	"Icon": "imgs/plugin/marketplace",
+	"Icon": "imgs/plugin/plugin-icon",
 	"Nodejs": {
 		"Debug": "enabled",
 		"Version": "20"
