@@ -2,7 +2,7 @@
 	"Name": "Clicker",
 	"Actions": [
 		{
-			"Name": "Click",
+			"Name": "Move then click",
 			"Controllers": [
 				"Keypad"
 			],
@@ -13,11 +13,11 @@
 					"TitleAlignment": "bottom"
 				}
 			],
-			"Tooltip": "CLICK at the point with the given coordinates",
+			"Tooltip": "MOVE to the point with the given coordinates, then CLICK",
 			"UUID": "com.dtrt.clicker.c"
 		},
 		{
-			"Name": "Double-click",
+			"Name": "Move then double-click",
 			"Controllers": [
 				"Keypad"
 			],
@@ -28,11 +28,11 @@
 					"TitleAlignment": "bottom"
 				}
 			],
-			"Tooltip": "DOUBLE-CLICK at the point with the given coordinates",
+			"Tooltip": "MOVE to the point with the given coordinates, then DOUBLE-CLICK",
 			"UUID": "com.dtrt.clicker.dc"
 		},
 		{
-			"Name": "Triple-click",
+			"Name": "Move then triple-click",
 			"Controllers": [
 				"Keypad"
 			],
@@ -43,11 +43,11 @@
 					"TitleAlignment": "bottom"
 				}
 			],
-			"Tooltip": "TRIPLE-CLICK at the point with the given coordinates. If Triple-Click does not work, try DOUBLE-CLICK followed by (single) CLICK.",
+			"Tooltip": "MOVE to the point with the given coordinates, then TRIPLE-CLICK.",
 			"UUID": "com.dtrt.clicker.tc"
 		},
 		{
-			"Name": "Right-click",
+			"Name": "Move then right-click",
 			"Controllers": [
 				"Keypad"
 			],
@@ -58,23 +58,8 @@
 					"TitleAlignment": "bottom"
 				}
 			],
-			"Tooltip": "RIGHT-CLICK at the point with the given coordinates",
+			"Tooltip": "MOVE to the point with the given coordinates, then RIGHT-CLICK",
 			"UUID": "com.dtrt.clicker.rc"
-		},
-		{
-			"Name": "Move",
-			"Controllers": [
-				"Keypad"
-			],
-			"Icon": "imgs/action-image-m",
-			"States": [
-				{
-					"Image": "imgs/key-icon-m",
-					"TitleAlignment": "bottom"
-				}
-			],
-			"Tooltip": "MOVE the mouse to the point with the given coordinates",
-			"UUID": "com.dtrt.clicker.m"
 		}
 	],
 	"Author": "DTRT",

@@ -16,23 +16,40 @@
       <form id="property-inspector">
         <fieldset id="xy">
           <legend>
-            <div class="sdpi-heading">X-Y POINT</div>
+            <div class="sdpi-heading">FIRST X-Y POINT</div>
           </legend>
-          <div class="sdpi-item">
-            <label for="x" class="sdpi-item-label">X</label>
-            <input class="sdpi-item-value" id="x" name="x" type="number" required value="0" placeholder="X coordinate" />
-          </div>
-          <div class="sdpi-item">
-            <label for="y" class="sdpi-item-label">Y</label>
-            <input class="sdpi-item-value" id="y" name="y" type="number" required value="0" placeholder="Y coordinate" />
+          <div class="sdpi-item sdpi-items-2">
+            <label for="x1" class="sdpi-item-label">X</label>
+            <input class="sdpi-item-value" id="x1" name="x1" type="number" required value="0" aria-describedby="xy1-message" />
+            <label for="y1" class="sdpi-item-label">Y</label>
+            <input class="sdpi-item-value" id="y1" name="y1" type="number" required value="0" aria-describedby="xy1-message" />
           </div>
           <div class="sdpi-item">
             <div class="sdpi-item-value">
-              <details class="message question question-top" id="wait-message">
-                <summary class="summary-small">X-Y info</summary>
-                <p>Screen position at which to perform the action.</p>
+              <details class="message question question-top" id="xy1-message">
+                <summary class="summary-small">First X-Y Point info</summary>
+                <p>Screen location at which to perform the click action.</p>
                 <p>Reference the <a href="#bounds">DISPLAY BOUNDS</a> when deciding whether to use positive or negative values.</p>
                 <p>Adjust the <a href="#wait">Wait</a> and <a href="#easing">Easing</a> options when testing different X and Y values.</p>
+              </details>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="xy2">
+          <legend>
+            <div class="sdpi-heading">SECOND X-Y POINT</div>
+          </legend>
+          <div class="sdpi-item sdpi-items-2">
+            <label for="x2" class="sdpi-item-label">X</label>
+            <input class="sdpi-item-value" id="x2" name="x2" type="number" value="" aria-describedby="xy2-message" />
+            <label for="y2" class="sdpi-item-label">Y</label>
+            <input class="sdpi-item-value" id="y2" name="y2" type="number" value="" aria-describedby="xy2-message" />
+          </div>
+          <div class="sdpi-item">
+            <div class="sdpi-item-value">
+              <details class="message question question-top" id="xy2-message">
+                <summary class="summary-small">Second X-Y Point info</summary>
+                <p>Screen location at which to perform a second click action (optional).</p>
               </details>
             </div>
           </div>
@@ -51,7 +68,7 @@
                 <details class="message caution caution-top" id="show-bounds-message">
                   <summary class="summary-small">Load Display Bounds info</summary>
                   <p>This feature uses macOS AppleScript to get information about your System Display dimensions. </p>
-                  <p>This information can be useful when choosing an <a href="#xy">X-Y Point</a>. </p>
+                  <p>This information can be useful when choosing <a href="#xy">X-Y Points</a>. </p>
                   <p>Clicking “Load Display Bounds“ will display a prompt from macOS, asking you to give “Elgato Stream Deck.app” access to control “Finder.app”. </p>
                   <p>At the prompt, click “OK” if you trust this plugin and wish to run an AppleScript to query your System Display dimensions. That will also hide the button and this message.</p>
                 </details>
@@ -59,53 +76,40 @@
             </div>
           </div>
           <div id="bounds-content" hidden>
-            <div class="sdpi-item">
+            <div class="sdpi-item sdpi-items-2">
+              <label for="display-top" class="sdpi-item-label">Top</label>
+              <input class="sdpi-item-value" id="display-top" name="displayTop" type="number" value="" readonly aria-describedby="display-top-message" />
               <label for="display-left" class="sdpi-item-label">Left</label>
               <input class="sdpi-item-value" id="display-left" name="displayLeft" type="number" value="" readonly aria-describedby="display-left-message" />
             </div>
-            <div class="sdpi-item">
-              <div class="sdpi-item-value">
-                <details class="message question question-top" id="display-left-message">
-                  <summary class="summary-small">Left info</summary>
-                  <p>Left boundary of all displays in System Settings &gt; Displays &gt; Arrange Displays.</p>
-                  <p>A negative value indicates the width of a second display, arranged to the left of the main display.</p>
-                </details>
-              </div>
-            </div>
-            <div class="sdpi-item">
-              <label for="display-top" class="sdpi-item-label">Top</label>
-              <input class="sdpi-item-value" id="display-top" name="displayTop" type="number" value="" readonly aria-describedby="display-top-message" />
-            </div>
-            <div class="sdpi-item">
-              <div class="sdpi-item-value">
-                <details class="message question question-top" id="display-top-message">
-                  <summary class="summary-small">Top info</summary>
-                  <p>Top boundary of highest display in System Settings &gt; Displays &gt; Arrange Displays.</p>
-                  <p>A negative value indicates the vertical offset of a second display, arranged above the main display.</p>
-                </details>
-              </div>
-            </div>
-            <div class="sdpi-item">
+            <div class="sdpi-item sdpi-items-2">
               <label for="display-width" class="sdpi-item-label">Width</label>
               <input class="sdpi-item-value" id="display-width" name="displayWidth" type="number" value="" readonly aria-describedby="display-width-message" />
-            </div>
-            <div class="sdpi-item">
-              <div class="sdpi-item-value">
-                <details class="message question question-top" id="display-width-message">
-                  <summary class="summary-small">Width info</summary>
-                  <p>Width of the main display in System Settings &gt; Displays.</p>
-                </details>
-              </div>
-            </div>
-            <div class="sdpi-item">
               <label for="display-height" class="sdpi-item-label">Height</label>
               <input class="sdpi-item-value" id="display-height" name="displayHeight" type="number" value="" readonly aria-describedby="display-height-message" />
             </div>
             <div class="sdpi-item">
               <div class="sdpi-item-value">
-                <details class="message question question-top" id="display-height-message">
-                  <summary class="summary-small">Height info</summary>
-                  <p>Combined height of all displays in System Settings &gt; Displays.</p>
+                <details class="message question question-top" id="display-width-message">
+                  <summary class="summary-small">Display Bounds info</summary>
+                  <div id="display-top-message">
+                    <h4>Top</h4>
+                    <p>Top boundary of highest display in System Settings &gt; Displays &gt; Arrange Displays.</p>
+                    <p>A negative value indicates the vertical offset of a second display, arranged above the main display.</p>
+                  </div>
+                  <div id="display-left-message">
+                    <h4>Left</h4>
+                    <p>Left boundary of all displays in System Settings &gt; Displays &gt; Arrange Displays.</p>
+                    <p>A negative value indicates the width of a second display, arranged to the left of the main display.</p>
+                  </div>
+                  <div id="display-width-message">
+                    <h4>Width</h4>
+                    <p>Width of the main display in System Settings &gt; Displays.</p>
+                  </div>
+                  <div id="display-height-message">
+                    <h4>Height</h4>
+                    <p>Combined height of all displays in System Settings &gt; Displays.</p>
+                  </div>
                 </details>
               </div>
             </div>
@@ -118,12 +122,13 @@
           <div class="sdpi-item">
             <label for="easing" class="sdpi-item-label">Easing</label>
             <div class="sdpi-item-value datalist">
-              <input type="range" id="easing" name="easing" min="0" max="150" step="50" value="0" list="easing-list" aria-describedby="easing-message">
+              <input type="range" id="easing" name="easing" min="0" max="400" step="100" value="200" list="easing-list" aria-describedby="easing-message">
               <datalist id="easing-list">
                 <option class="clickable" value="0">Instant</option>
-                <option class="clickable" value="50">Fast</option>
-                <option class="clickable" value="100">Medium</option>
-                <option class="clickable" value="150">Slow</option>
+                <option class="clickable" value="100">Fast</option>
+                <option class="clickable" value="200">Medium</option>
+                <option class="clickable" value="300">Slow</option>
+                <option class="clickable" value="400">Glacial</option>
               </datalist>
             </div>
           </div>
@@ -138,13 +143,13 @@
           </div>
           <div class="sdpi-item">
             <label for="wait" class="sdpi-item-label">Wait</label>
-            <input class="sdpi-item-value" id="wait" name="wait" type="number" value="20" min="20" placeholder="Wait time (ms)" aria-describedby="wait-message" />
+            <input class="sdpi-item-value" id="wait" name="wait" type="number" value="250" min="20" placeholder="Wait time (ms)" aria-describedby="wait-message" />
           </div>
           <div class="sdpi-item">
             <div class="sdpi-item-value">
               <details class="message question question-top" id="wait-message">
                 <summary class="summary-small">Wait info</summary>
-                <p>Number of milliseconds to wait after the action.</p>
+                <p>Number of milliseconds to wait after clicking.</p>
                 <p>Increase this value to test that you have the correct X-Y position.</p>
               </details>
             </div>
