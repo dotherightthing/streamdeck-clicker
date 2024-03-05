@@ -14,6 +14,76 @@
   <body>
     <div class="sdpi-wrapper">
       <form id="property-inspector">
+        <fieldset id="displays">
+          <legend>
+            <div class="sdpi-heading">DISPLAYS</div>
+          </legend>
+          <div id="show-displays-toggle">
+            <div class="sdpi-item item-toggle">
+              <button type="button" class="sdpi-item-value" data-toggle-input="show-displays" data-toggle-layout="displays-content" data-toggle-parent="show-displays-toggle" aria-describedby="show-displays-message">Load Displays</button>
+              <input type="hidden" id="show-displays" name="showDisplays" value="false"/>
+            </div>
+            <div class="sdpi-item">
+              <div class="sdpi-item-value">
+                <details class="message caution caution-top" id="show-bounds-message">
+                  <summary class="summary-small">Load Displays info</summary>
+                  <p>This feature uses macOS AppleScript to get information about your System Display dimensions. </p>
+                  <p>This information can be useful when choosing <a href="#xy">X-Y Points</a>. </p>
+                  <p>Clicking “Load Display info will display a prompt from macOS, asking you to give “Elgato Stream Deck.app” access to control “Finder.app”. </p>
+                  <p>At the prompt, click “OK” if you trust this plugin and wish to run an AppleScript to query your System Display dimensions. That will also hide the button and this message.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+          <div id="displays-content" hidden>
+            <input type="hidden" name="displays" value="">
+            <div class="sdpi-item" id="displays-radios">
+              <!-- radios injected by inspector.js -->
+            </div>
+            <div class="sdpi-item sdpi-items-2">
+              <label for="display-width" class="sdpi-item-label">Width</label>
+              <input id="display-width" name="displayWidth" type="number" value="" readonly aria-describedby="display-width-message" />
+              <label for="display-height" class="sdpi-item-label">Height</label>
+              <input id="display-height" name="displayHeight" type="number" value="" readonly aria-describedby="display-height-message" />
+            </div>
+            <div class="sdpi-item sdpi-items-2">
+              <label for="display-offset-x" class="sdpi-item-label">Horz Offset</label>
+              <input id="display-offset-x" name="displayOffsetX" type="number" value="" readonly aria-describedby="display-offset-x-message" />
+              <label for="display-offset-y" class="sdpi-item-label">Vert Offset</label>
+              <input id="display-offset-y" name="displayOffsetY" type="number" value="" readonly aria-describedby="display-offset-y-message" />
+            </div>
+            <div class="sdpi-item">
+              <div class="sdpi-item-value">
+                <details class="message question question-top" id="display-width-message">
+                  <summary class="summary-small">Displays info</summary>
+                  <div id="display-width-message">
+                    <h4>Width</h4>
+                    <p>Width of the selected display in System Settings &gt; Displays.</p>
+                  </div>
+                  <div id="display-height-message">
+                    <h4>Height</h4>
+                    <p>Height of the selected display in System Settings &gt; Displays.</p>
+                  </div>
+                  <div id="display-offset-x-message">
+                    <h4>Horz Offset</h4>
+                    <p>Horizontal offset of selected display, relative to the main display in System Settings &gt; Displays &gt; Arrange Displays.</p>
+                  </div>
+                  <div id="display-offset-y-message">
+                    <h4>Vert Offset</h4>
+                    <p>Vertical offset of selected display, relative to the main display in System Settings &gt; Displays &gt; Arrange Displays.</p>
+                  </div>
+                  <!--
+                  <div id="display-offset-y-message">
+                    <h4>Top offset</h4>
+                    <p>Left boundary of all displays in System Settings &gt; Displays &gt; Arrange Displays.</p>
+                    <p>A negative value indicates the width of a second display, arranged to the left of the main display.</p>
+                  </div>
+                  -->
+                </details>
+              </div>
+            </div>
+          </div>
+        </fieldset>
         <fieldset id="xy">
           <legend>
             <div class="sdpi-heading">FIRST X-Y POINT</div>
@@ -28,8 +98,11 @@
             <div class="sdpi-item-value">
               <details class="message question question-top" id="xy1-message">
                 <summary class="summary-small">First X-Y Point info</summary>
-                <p>Screen location at which to perform the click action.</p>
-                <p>Reference the <a href="#bounds">DISPLAY BOUNDS</a> when deciding whether to use positive or negative values.</p>
+                <p>Screen location at which to perform the action.</p>
+                <p>On a Mac, use <code>COMMAND+SHIFT+4</code> to reveal crosshairs with X-Y position.</p>
+                <p>At the correct position, make a note of the X (top) and Y (bottom) values.</p>
+                <p>Press ESC to hide the crosshairs again.</p>
+                <p>Enter the <a href="#x1">X</a> and <a href="#y1">Y</a> values into the fields above.</p>
                 <p>Adjust the <a href="#wait">Wait</a> and <a href="#easing">Easing</a> options when testing different X and Y values.</p>
               </details>
             </div>
@@ -49,69 +122,8 @@
             <div class="sdpi-item-value">
               <details class="message question question-top" id="xy2-message">
                 <summary class="summary-small">Second X-Y Point info</summary>
-                <p>Screen location at which to perform a second click action (optional).</p>
+                <p>Screen location at which to perform a second action (optional).</p>
               </details>
-            </div>
-          </div>
-        </fieldset>
-        <fieldset id="bounds">
-          <legend>
-            <div class="sdpi-heading">DISPLAY BOUNDS</div>
-          </legend>
-          <div id="show-bounds-toggle">
-            <div class="sdpi-item item-toggle">
-              <button type="button" class="sdpi-item-value" data-toggle-input="show-bounds" data-toggle-layout="bounds-content" data-toggle-parent="show-bounds-toggle" aria-describedby="show-bounds-message">Load Display Bounds</button>
-              <input type="hidden" id="show-bounds" name="showBounds" value="false"/>
-            </div>
-            <div class="sdpi-item">
-              <div class="sdpi-item-value">
-                <details class="message caution caution-top" id="show-bounds-message">
-                  <summary class="summary-small">Load Display Bounds info</summary>
-                  <p>This feature uses macOS AppleScript to get information about your System Display dimensions. </p>
-                  <p>This information can be useful when choosing <a href="#xy">X-Y Points</a>. </p>
-                  <p>Clicking “Load Display Bounds“ will display a prompt from macOS, asking you to give “Elgato Stream Deck.app” access to control “Finder.app”. </p>
-                  <p>At the prompt, click “OK” if you trust this plugin and wish to run an AppleScript to query your System Display dimensions. That will also hide the button and this message.</p>
-                </details>
-              </div>
-            </div>
-          </div>
-          <div id="bounds-content" hidden>
-            <div class="sdpi-item sdpi-items-2">
-              <label for="display-top" class="sdpi-item-label">Top</label>
-              <input class="sdpi-item-value" id="display-top" name="displayTop" type="number" value="" readonly aria-describedby="display-top-message" />
-              <label for="display-left" class="sdpi-item-label">Left</label>
-              <input class="sdpi-item-value" id="display-left" name="displayLeft" type="number" value="" readonly aria-describedby="display-left-message" />
-            </div>
-            <div class="sdpi-item sdpi-items-2">
-              <label for="display-width" class="sdpi-item-label">Width</label>
-              <input class="sdpi-item-value" id="display-width" name="displayWidth" type="number" value="" readonly aria-describedby="display-width-message" />
-              <label for="display-height" class="sdpi-item-label">Height</label>
-              <input class="sdpi-item-value" id="display-height" name="displayHeight" type="number" value="" readonly aria-describedby="display-height-message" />
-            </div>
-            <div class="sdpi-item">
-              <div class="sdpi-item-value">
-                <details class="message question question-top" id="display-width-message">
-                  <summary class="summary-small">Display Bounds info</summary>
-                  <div id="display-top-message">
-                    <h4>Top</h4>
-                    <p>Top boundary of highest display in System Settings &gt; Displays &gt; Arrange Displays.</p>
-                    <p>A negative value indicates the vertical offset of a second display, arranged above the main display.</p>
-                  </div>
-                  <div id="display-left-message">
-                    <h4>Left</h4>
-                    <p>Left boundary of all displays in System Settings &gt; Displays &gt; Arrange Displays.</p>
-                    <p>A negative value indicates the width of a second display, arranged to the left of the main display.</p>
-                  </div>
-                  <div id="display-width-message">
-                    <h4>Width</h4>
-                    <p>Width of the main display in System Settings &gt; Displays.</p>
-                  </div>
-                  <div id="display-height-message">
-                    <h4>Height</h4>
-                    <p>Combined height of all displays in System Settings &gt; Displays.</p>
-                  </div>
-                </details>
-              </div>
             </div>
           </div>
         </fieldset>
@@ -192,6 +204,6 @@
     <script src="../libs/streamdeck/js/dynamic-styles.js"></script>
 
     <!-- Local -->
-    <script src="inspector.js"></script>
+    <script src="inspector.js" type="module"></script>
   </body>
 </html>

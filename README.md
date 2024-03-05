@@ -24,6 +24,8 @@ cd ~/Library/Application\ Support/com.elgato.StreamDeck/plugins/ && unlink com.d
 npm run watch
 ```
 
+To quit Stream Deck app, use the icon in the top right menu bar.
+
 ### Logging
 
 #### Node

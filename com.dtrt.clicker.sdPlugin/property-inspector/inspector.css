@@ -149,3 +149,23 @@ details.question-top {
   width: auto;
   margin-left: 0;
 }
+
+/* override SD styles */
+
+input[type="radio"] {
+  display: inline-block;
+  color: white;
+  width: 1em;
+  height: 1em;
+  border: 1px solid currentColor;
+  border-radius: 100%;
+}
+
+input[type="radio"]:not([type="range"]) {
+  min-width: 0;
+  margin: 0 .5em;
+}
+
+input[type="radio"]:checked {
+  background-color: #ccc;
+}

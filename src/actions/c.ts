@@ -7,25 +7,31 @@ import {
 
 import { cliclick } from 'cliclick';
 import { getDesktopBounds } from 'helpers';
+import { getDisplays } from 'helpers';
 
 /**
  * Settings for {@link C}
  */
 type Settings = {
-	displayHeight: number,
+  displays: string,
 	displayLeft: number,
+  displayOffsetX: number,
+  displayOffsetY: number,
+  displayWidth: number,
+  displayHeight: number,
 	displayTop: number,
-	displayWidth: number,
 	easing: number,
 	restore: boolean,
 	showBounds: string,
+	showDisplays: string,
 	wait: number,
+	x: number,
+	y: number,
 	x1: number,
 	y1: number,
 	x2: number,
 	y2: number
 };
-
 /**
  * c:x,y
  */
@@ -45,9 +51,26 @@ export class C extends SingletonAction<Settings> {
   async onDidReceiveSettings(ev: DidReceiveSettingsEvent<Settings>): Promise<void> {
     const { payload } = ev;
     const { settings: oldSettings } = payload;
-    const { showBounds } = oldSettings;
+    const { showBounds, showDisplays } = oldSettings;
 
+    let displays = '';
+
+    if (showDisplays === 'true') {
+      displays = await getDisplays();
+
+      const newSettings = Object.assign(oldSettings, {
+        displays
+      });
+
+      // persist settings
+      // property inspector runs callback
+      ev.action.setSettings(newSettings);
+    }
+
+    /*
     if (showBounds === 'true') {
+      // const displays = await getDisplays(); // array of arrays
+
       const {
         left: displayLeft,
         top: displayTop,
@@ -56,6 +79,7 @@ export class C extends SingletonAction<Settings> {
       } = await getDesktopBounds();
 
       const newSettings = Object.assign(oldSettings, {
+        displays,
         displayLeft,
         displayTop,
         displayWidth,
@@ -66,11 +90,36 @@ export class C extends SingletonAction<Settings> {
       // property inspector runs callback
       ev.action.setSettings(newSettings);
     }
+    */
   }
 
   // https://docs.elgato.com/sdk/plugins/events-received#keydown
   async onKeyDown(ev: KeyDownEvent<Settings>): Promise<void> {
-    const settings = (({ easing, restore, wait, x1, y1, x2, y2 }) => ({ easing, restore, wait, x1, y1, x2, y2 }))(ev.payload.settings);
+    const settings = (({
+      displayOffsetX,
+      displayOffsetY,
+      displayWidth,
+      displayHeight,
+      easing,
+      restore,
+      wait,
+      x1,
+      y1,
+      x2,
+      y2
+    }) => ({
+      displayOffsetX,
+      displayOffsetY,
+      displayWidth,
+      displayHeight,
+      easing,
+      restore,
+      wait,
+      x1,
+      y1,
+      x2,
+      y2
+    }))(ev.payload.settings);
 
     await cliclick('c', settings);
   }
