@@ -6,7 +6,6 @@ import {
 } from "@elgato/streamdeck";
 
 import { cliclick } from 'cliclick';
-import { getDesktopBounds } from 'helpers';
 import { getDisplays } from 'helpers';
 
 /**
@@ -22,7 +21,6 @@ type Settings = {
 	displayTop: number,
 	easing: number,
 	restore: boolean,
-	showBounds: string,
 	showDisplays: string,
 	wait: number,
 	x: number,
@@ -51,7 +49,7 @@ export class C extends SingletonAction<Settings> {
   async onDidReceiveSettings(ev: DidReceiveSettingsEvent<Settings>): Promise<void> {
     const { payload } = ev;
     const { settings: oldSettings } = payload;
-    const { showBounds, showDisplays } = oldSettings;
+    const { showDisplays } = oldSettings;
 
     let displays = '';
 
@@ -66,31 +64,6 @@ export class C extends SingletonAction<Settings> {
       // property inspector runs callback
       ev.action.setSettings(newSettings);
     }
-
-    /*
-    if (showBounds === 'true') {
-      // const displays = await getDisplays(); // array of arrays
-
-      const {
-        left: displayLeft,
-        top: displayTop,
-        width: displayWidth,
-        height: displayHeight
-      } = await getDesktopBounds();
-
-      const newSettings = Object.assign(oldSettings, {
-        displays,
-        displayLeft,
-        displayTop,
-        displayWidth,
-        displayHeight
-      });
-
-      // persist settings
-      // property inspector runs callback
-      ev.action.setSettings(newSettings);
-    }
-    */
   }
 
   // https://docs.elgato.com/sdk/plugins/events-received#keydown
