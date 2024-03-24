@@ -37,14 +37,21 @@ function generateDisplayRadio(display, index) {
  * @param {string} displaysStr - Comma separated list of displays and their properties
  */
 function generateDisplayRadios(displaysStr) {
-  const radios = document.getElementsByName('displaySelection');
+  const displayRadios = document.getElementsByName('displaySelection');
 
-  if (radios.length) {
+  if (displayRadios.length) {
     return;
   }
 
   // eslint-disable-next-line no-use-before-define
   const displaysOrderedByOffsetX = getDisplaysOrderedByOffsetX(displaysStr);
+
+  const displayAlignmentRadios = document.getElementsByName('displayAlignment');
+
+  displayAlignmentRadios.forEach(displayAlignmentRadio => {
+    // eslint-disable-next-line no-use-before-define
+    displayAlignmentRadio.addEventListener('change', Utils.debounce(150, handleDisplayArrangementRadioChange));
+  });
 
   displaysOrderedByOffsetX.forEach((display, i) => {
     const radio = generateDisplayRadio(display, i);
@@ -52,7 +59,7 @@ function generateDisplayRadios(displaysStr) {
 
     // when checked, store the values for the selected radio so they can be accessed by cliclick.mjs
     // eslint-disable-next-line no-use-before-define
-    radio.addEventListener('change', Utils.debounce(150, handleRadioChange));
+    radio.addEventListener('change', Utils.debounce(150, handleDisplayRadioChange));
 
     radiosContainer.appendChild(radio);
   });
@@ -119,16 +126,20 @@ function handleFormInput(ev) {
 }
 
 /**
- * @function handleRadioChange
- * @summary Handle user or automated click of a radio button
+ * @function handleDisplayArrangementRadioChange
+ * @summary Handle user or automated click of one of the Display arrangement buttons
  * @param {Event} ev - Event
- * @todo displayOffsetY is only accurate when bottom of left display is positioned flush with bottom of main display (#16)
+ * @todo Support values other than flush-top and flush-bottom (#16)
  */
-function handleRadioChange(ev) {
+function handleDisplayArrangementRadioChange(ev) {
   const form = document.getElementById('property-inspector');
-  const radio = ev.target;
+  const selectedDisplayRadio = [ ...document.getElementsByName('displaySelection') ].filter(el => el.checked);
+
+  const radio = selectedDisplayRadio[0];
+
+  // copy of code from handleDisplayRadioChange
   const settings = Utils.getFormValue(form);
-  const { displays } = settings; // displays is set by c.ts applescript
+  const { displays, displayAlignment } = settings; // displays is set by c.ts applescript
 
   const [ offsetX, , width, height ] = radio.value.split(',');
 
@@ -138,7 +149,39 @@ function handleRadioChange(ev) {
 
   const newSettings = Object.assign(settings, {
     displayOffsetX: parseInt(offsetX),
-    displayOffsetY: parseInt(tallestHeight) - parseInt(height),
+    displayOffsetY: (displayAlignment === 'bottom') ? parseInt(tallestHeight) - parseInt(height) : 0,
+    displayWidth: parseInt(width),
+    displayHeight: parseInt(height)
+  });
+
+  // if user clicked button then update the settings
+  // otherwise use the settings from last time the button was clicked
+  // else infinite loop because $PI.setSettings calls onDidReceiveSettings which calls $PI.onDidReceiveSettings
+  if (ev.isTrusted) {
+    $PI.setSettings(newSettings);
+  }
+}
+
+/**
+ * @function handleDisplayRadioChange
+ * @summary Handle user or automated click of one of the Display selection buttons
+ * @param {Event} ev - Event
+ */
+function handleDisplayRadioChange(ev) {
+  const form = document.getElementById('property-inspector');
+  const radio = ev.target;
+  const settings = Utils.getFormValue(form);
+  const { displays, displayAlignment } = settings; // displays is set by c.ts applescript
+
+  const [ offsetX, , width, height ] = radio.value.split(',');
+
+  const displaysOrderedByHeight = getDisplaysOrderedByHeight(displays);
+
+  const [ , , , tallestHeight ] = displaysOrderedByHeight[0];
+
+  const newSettings = Object.assign(settings, {
+    displayOffsetX: parseInt(offsetX),
+    displayOffsetY: (displayAlignment === 'bottom') ? parseInt(tallestHeight) - parseInt(height) : 0,
     displayWidth: parseInt(width),
     displayHeight: parseInt(height)
   });
